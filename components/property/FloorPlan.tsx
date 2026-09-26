@@ -1,0 +1,11 @@
+"use client";
+
+import { useState } from "react";
+import { getCopy, type Locale } from "@/lib/i18n";
+
+export function FloorPlan({ locale }: { locale: Locale }) {
+  const [level, setLevel] = useState(0);
+  const m = getCopy(locale);
+  const tabs = [m.detail.ground, m.detail.first, m.detail.roof];
+  return <div className="floor-plan"><div className="floor-tabs" role="tablist" aria-label={m.detail.floor}>{tabs.map((tab, index) => <button key={tab} type="button" role="tab" aria-selected={level === index} aria-controls="floor-plan-panel" tabIndex={level === index ? 0 : -1} onClick={() => setLevel(index)} onKeyDown={(event) => { if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return; event.preventDefault(); const direction = event.key === "ArrowRight" ? 1 : -1; const next = (level + (locale === "ar" ? -direction : direction) + tabs.length) % tabs.length; setLevel(next); (event.currentTarget.parentElement?.children[next] as HTMLElement)?.focus(); }}>{tab}</button>)}</div><div id="floor-plan-panel" className="floor-plan-panel" role="tabpanel" aria-label={tabs[level]}><svg viewBox="0 0 660 410" role="img" aria-label={m.detail.planNote}><rect x="0" y="0" width="660" height="410" fill="#e8eceb"/><path d="M46 39H612V367H46Z" fill="#f6f8f6" stroke="#26303d" strokeWidth="8"/><path d="M46 171H380M380 39V367M380 231H612M194 171V367M46 281H194M485 231V367" fill="none" stroke="#26303d" strokeWidth="7"/><path d="M134 39V88M134 118V171M264 39V99M264 130V171M380 128H432M462 128H612M438 231V278M438 306V367" stroke="#f6f8f6" strokeWidth="11"/><path d="M59 180A80 80 0 0 1 139 260M388 241A65 65 0 0 1 453 306" fill="none" stroke="#78899c" strokeWidth="2" strokeDasharray="4 5"/><rect x="73" y="62" width="39" height="58" fill="#d7dfe2"/><rect x="221" y="63" width="37" height="60" fill="#d7dfe2"/><rect x="497" y="58" width="86" height="42" fill="#d7dfe2"/><rect x="225" y="252" width="103" height="72" fill="#d7dfe2"/><circle cx="535" cy="301" r="29" fill="#d7dfe2"/><text x="65" y="352" fontSize="11" fill="#4057ff" letterSpacing="3">{level === 0 ? "GROUND / 01" : level === 1 ? "FIRST / 02" : "ROOF / 03"}</text><text x="489" y="352" fontSize="10" fill="#687786" letterSpacing="2">ILLUSTRATIVE</text></svg><div><span>VANTA / CONCEPT PLAN</span><strong>{tabs[level]}</strong><small>{m.detail.planNote}</small></div></div></div>;
+}
