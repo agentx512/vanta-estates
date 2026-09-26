@@ -20,6 +20,23 @@ node scripts/browser-qa.mjs
 
 The browser QA script uses the installed Chromium at `/usr/bin/chromium` and writes full-page screenshots to `qa/screenshots/`.
 
+## Deploy to Vercel
+
+This is a Next.js project. Vercel can build it with the default Next.js settings; the project root is this directory. No `vercel.json` or local Apache/systemd configuration is needed on Vercel.
+
+1. Create an empty repository on GitHub and push this local `main` branch:
+
+   ```bash
+   git remote add origin <YOUR_GITHUB_REPOSITORY_URL>
+   git push -u origin main
+   ```
+
+2. In the [Vercel dashboard](https://vercel.com/new), select **Add New → Project**, import the repository, leave **Framework Preset: Next.js** and **Root Directory: `./`**, then select **Deploy**.
+3. In **Project Settings → Environment Variables**, enable **Automatically expose System Environment Variables**. The app uses Vercel's `VERCEL_PROJECT_PRODUCTION_URL` for canonical, Open Graph, sitemap, robots, and structured-data URLs. You can set `NEXT_PUBLIC_SITE_URL` to a full `https://...` URL if you want to override it, for example when using a custom domain. Redeploy after changing environment variables.
+4. Open the assigned `*.vercel.app` URL and check `/en`, `/ar`, `/sitemap.xml`, and a property detail page. The forms open WhatsApp using the demonstration number in `config/site.ts`; change that number and the demo email before using the site for real inquiries.
+
+Alternatively, deploy directly from this directory with the [Vercel CLI](https://vercel.com/docs/cli/deploy): `npx vercel` for a preview and `npx vercel --prod` for production. The first command will prompt you to log in and link or create a project.
+
 ## Structure
 
 | Task | File or directory |
