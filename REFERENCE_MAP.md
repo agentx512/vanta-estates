@@ -24,3 +24,16 @@ Audit date: 2026-09-25. The top level of `/var/www/designdemo` contains one runn
 | Explicit demo inquiry handoff | SRS §§32–33, 66; local ContactForm behavior | WhatsApp link and honest client-side form |
 
 Live Refero search returned `NO_SUBSCRIPTION`; the local audit and detailed SRS serve as the available visual research. No files in `/var/www/designdemo` will be modified or copied into this project.
+
+## Motion extension — 2026-09-26
+
+Refero style searches for luxury real estate, architectural property, and image-led travel all returned `NO_SUBSCRIPTION`. The locked visual target remains the existing VANTA site and the Metropolitan Atlas SRS direction above. The bundled Refero motion guide supplies timing, feedback, continuity, and reduced-motion rules.
+
+| Decision | Source | Role |
+| --- | --- | --- |
+| Keep architectural photography, midnight canvas, sharp sans type, and cobalt actions | Existing VANTA reference lock | Motion adds depth without changing the brand roles |
+| Replace the full-screen `clip-path` wipe with a thin route progress line | Motion guide: transform and opacity for large transitions; user request for smooth entry | Navigation feedback without obscuring the page or repainting a full viewport |
+| Stage hero image, headline, links, and search with short eased transforms and fades | Existing image-led hero; motion guide hierarchy | Guide attention during the first second of page entry |
+| Reveal only offscreen sections as they approach the viewport | Motion guide continuity and reduced-motion rule | Add rhythm during browsing while preserving visible server-rendered content |
+| Keep old map/project images visible until replacements load, then crossfade | Existing area and development selection pattern | Avoid blank flashes during rapid selection |
+| Animate filter feedback without remounting listing cards; update counters without React state on every frame | User request for responsiveness and frame stability | Keep interactions interruptible and reduce main-thread work |

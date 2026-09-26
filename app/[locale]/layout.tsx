@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { RouteWipe } from "@/components/motion/RouteWipe";
+import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { isLocale, locales } from "@/lib/i18n";
 import "../globals.css";
 
@@ -16,6 +17,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   if (!isLocale(locale)) notFound();
   return <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}><body className={locale === "ar" ? "locale-ar" : "locale-en"}>
     <RouteWipe />
+    <ScrollReveal />
     <a className="skip-link" href="#main">{locale === "ar" ? "تخطي إلى المحتوى" : "Skip to content"}</a>
     <Header locale={locale} />
     {children}

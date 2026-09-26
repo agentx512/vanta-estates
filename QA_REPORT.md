@@ -12,6 +12,10 @@ Date: 2026-09-26
 
 The browser script checked English and Arabic, LTR/RTL, home and property detail at 1440 px and 390 px, navigation routes, menu and filter-sheet Escape handling, search filtering, area selection, Smart Match result consistency, property gallery, floor-plan tabs, WhatsApp message identity and location, form validation, desktop filtering, price sort, grid/list view, language switching with the query retained, reduced motion, sitemap, robots, and 404 behavior. It also checked horizontal overflow at 320, 360, 375, 390, 430, 768, 1024, 1280, 1440, and 1920 px.
 
+## Motion update
+
+The 2026-09-26 motion pass replaced the full-screen `clip-path` intro with transform/opacity animations, added scroll reveals and control feedback, kept previous preview images visible until replacements load, and removed per-frame React renders from the market counters. A targeted browser check confirmed area and development image changes, section reveals, no page errors, and a working reduced-motion mode. A headless Chromium sample of the first 1.25 seconds after DOM content loaded showed a 17 ms 95th-percentile frame interval at normal CPU. At 4× CPU throttling it was 50 ms in the final run; frame pacing still depends on device speed. The visual pass inspected desktop English and mobile Arabic first viewports.
+
 ## Full-page screenshots
 
 | Page | Desktop | Mobile |
